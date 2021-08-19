@@ -1,7 +1,6 @@
 package org.example;
 
 import org.springframework.web.WebApplicationInitializer;
-import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.XmlWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 import javax.servlet.ServletContext;
@@ -17,6 +16,6 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
         dispatcherServlet.setContextConfigLocation("classpath:springmvc.xml");
         ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcher", dispatcherServlet);
         registration.setLoadOnStartup(1);
-        registration.addMapping("*.do");
+        registration.addMapping("/");
     }
 }
