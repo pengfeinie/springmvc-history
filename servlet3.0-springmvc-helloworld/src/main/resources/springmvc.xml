@@ -13,7 +13,7 @@ http://www.springframework.org/schema/mvchttp://www.springframework.org/schema/m
 
     
     
-    
+    <context:component-scan base-package="org.example.controller"/>
 
 
 
