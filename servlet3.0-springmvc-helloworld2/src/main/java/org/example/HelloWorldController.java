@@ -10,7 +10,7 @@ import java.nio.charset.StandardCharsets;
 public class HelloWorldController {
 
 
-    @RequestMapping(value = "/v1/hello/world.do")
+    @RequestMapping(value = "/v1/hello/world")
     public void hello(@RequestParam String name, HttpServletResponse response) throws Exception{
         response.getOutputStream().write(name.getBytes(StandardCharsets.UTF_8));
     }

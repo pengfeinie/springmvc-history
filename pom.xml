@@ -12,6 +12,7 @@
         <module>servlet2.5-helloworld</module>
         <module>servlet2.5-springmvc-helloworld</module>
         <module>servlet3.0-springmvc-helloworld</module>
+        <module>servlet3.0-springmvc-helloworld2</module>
     </modules>
     <packaging>pom</packaging>
     <properties>
