@@ -12,7 +12,7 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
     public void onStartup(ServletContext servletContext) {
         XmlWebApplicationContext xmlApplicationContext = new XmlWebApplicationContext();
         xmlApplicationContext.setConfigLocation("classpath:applicationContext.xml");
-        DispatcherServlet dispatcherServlet = new DispatcherServlet();
+        DispatcherServlet dispatcherServlet = new DispatcherServlet(xmlApplicationContext);
         //dispatcherServlet.setContextConfigLocation("classpath:springmvc.xml");
         ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcher", dispatcherServlet);
         registration.setLoadOnStartup(1);
