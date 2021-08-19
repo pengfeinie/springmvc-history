@@ -13,7 +13,7 @@ http://www.springframework.org/schema/mvchttp://www.springframework.org/schema/m
 
     
     
-    <mvc:annotation-driven/>
+    
 
 
 
