@@ -46,3 +46,14 @@
 /servlet3.0-springmvc-helloworld1_2/*.project
 /servlet3.0-springmvc-helloworld1_2/.settings/*.jsdtscope
 /servlet3.0-springmvc-helloworld1_2/.settings
+/servlet3.0-springmvc-helloworld2_1/*.classpath
+/servlet3.0-springmvc-helloworld2_1/*.gitignore
+/servlet3.0-springmvc-helloworld2_1/*.project
+/servlet3.0-springmvc-helloworld2_1/.settings/*.jsdtscope
+/servlet3.0-springmvc-helloworld2_1/.settings/*.prefs
+/servlet3.0-springmvc-helloworld2_1/.settings/*.component
+/servlet3.0-springmvc-helloworld2_1/.settings
+/servlet3.0-springmvc-helloworld2_2/.settings
+/servlet3.0-springmvc-helloworld2_2/*.project
+/servlet3.0-springmvc-helloworld2_2/*.gitignore
+/servlet3.0-springmvc-helloworld2_2/*.classpath
