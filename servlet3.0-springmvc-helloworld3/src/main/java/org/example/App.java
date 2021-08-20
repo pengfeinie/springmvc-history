@@ -47,10 +47,12 @@ public class App {
         AnnotationConfigWebApplicationContext ac = new AnnotationConfigWebApplicationContext();
         ac.register(AppConfig.class);
         DispatcherServlet servlet = new DispatcherServlet(ac);
-        Wrapper registration = tomcat.addServlet(contextPath,"app", servlet);
+        Wrapper wrapper = tomcat.addServlet(contextPath,"app", servlet);
+        wrapper.setLoadOnStartup(1);
+        wrapper.addMapping("/");
+        
         //ServletRegistration.Dynamic registration = servletCxt.addServlet("app", servlet);
-        registration.setLoadOnStartup(1);
-        registration.addMapping("/");
+        
 
         tomcat.start();
         tomcat.getServer().await();
