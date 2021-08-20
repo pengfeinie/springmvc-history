@@ -17,7 +17,7 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
     	
         DispatcherServlet dispatcherServlet = new DispatcherServlet();
         dispatcherServlet.setContextClass(AnnotationConfigWebApplicationContext.class);
-        dispatcherServlet.setContextConfigLocation("org.example.AppMvcConfig");
+        dispatcherServlet.setContextConfigLocation(AppMvcConfig.class.getCanonicalName());
         ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcherServlet", dispatcherServlet);
         registration.setLoadOnStartup(1);
         registration.addMapping("/");
