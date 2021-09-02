@@ -10,12 +10,16 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
 
     @Override
     public void onStartup(ServletContext servletContext) {
-    	AnnotationConfigWebApplicationContext annotationConfigWebApplicationContext = new AnnotationConfigWebApplicationContext();
-    	annotationConfigWebApplicationContext.register(AppConfig.class);
+    	AnnotationConfigWebApplicationContext ac = new AnnotationConfigWebApplicationContext();
+    	ac.register(AppConfig.class);
     	
-        DispatcherServlet dispatcherServlet = new DispatcherServlet(annotationConfigWebApplicationContext);
+        DispatcherServlet dispatcherServlet = new DispatcherServlet(ac);
         ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcherServlet", dispatcherServlet);
         registration.setLoadOnStartup(1);
         registration.addMapping("/");
     }
 }
+
+
+
+

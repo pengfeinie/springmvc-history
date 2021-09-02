@@ -23,3 +23,9 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
         registration.addMapping("/");
     }
 }
+
+
+
+
+
+

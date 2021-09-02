@@ -11,9 +11,17 @@ import java.nio.charset.StandardCharsets;
 @WebServlet(name = "helloWorldServlet",value = {"/v1/hello/world"})
 public class HelloWorldServlet extends HttpServlet {
 
-    @Override
+	private static final long serialVersionUID = 1L;
+
+	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("name");
         resp.getOutputStream().write(name.getBytes(StandardCharsets.UTF_8));
     }
 }
+
+
+
+
+
+
