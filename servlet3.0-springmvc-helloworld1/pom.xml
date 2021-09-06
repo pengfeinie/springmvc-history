@@ -12,8 +12,8 @@
     <artifactId>servlet3.0-springmvc-helloworld1</artifactId>
 
     <properties>
-        <maven.compiler.source>7</maven.compiler.source>
-        <maven.compiler.target>7</maven.compiler.target>
+        <maven.compiler.source>6</maven.compiler.source>
+        <maven.compiler.target>6</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
     </properties>
 
@@ -39,6 +39,11 @@
             <artifactId>spring-webmvc</artifactId>
             <version>3.2.0.RELEASE</version>
         </dependency>
+        <dependency>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>tomcat-catalina</artifactId>
+    <version>8.0.1</version>
+</dependency>
     </dependencies>
 
 </project>
