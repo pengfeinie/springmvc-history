@@ -58,3 +58,15 @@
 /servlet3.0-springmvc-helloworld2_2/*.gitignore
 /servlet3.0-springmvc-helloworld2_2/*.classpath
 /servlet3.0-springmvc-helloworld/servlet3.0-springmvc-helloworld.iml
+/servlet3.0-springmvc3.0-helloworld2/.settings/*.prefs
+/servlet3.0-springmvc3.0-helloworld2/*.classpath
+/servlet3.0-springmvc3.0-helloworld2/*.project
+/servlet3.0-springmvc3.0-helloworld2/.settings/*.jsdtscope
+/servlet3.0-springmvc3.0-helloworld2/.settings/org.eclipse.wst.jsdt.ui.superType.name
+/servlet3.0-springmvc3.0-helloworld2/.settings/*.component
+/servlet3.0-springmvc3.0-helloworld2/.settings/org.eclipse.wst.common.project.facet.core.xml
+/servlet3.0-springmvc3.0-helloworld2/.settings
+/servlet3.0-springmvc3.0-helloworld/*.classpath
+/servlet3.0-springmvc3.0-helloworld/*.project
+/servlet3.0-springmvc3.0-helloworld/.settings/*.jsdtscope
+/servlet3.0-springmvc3.0-helloworld/.settings
