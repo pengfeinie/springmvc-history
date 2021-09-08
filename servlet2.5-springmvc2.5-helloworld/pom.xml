@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>war</packaging>
-    <artifactId>servlet2.5-springmvc-helloworld</artifactId>
+    <artifactId>servlet2.5-springmvc2.5-helloworld</artifactId>
 
     <properties>
         <maven.compiler.source>5</maven.compiler.source>
