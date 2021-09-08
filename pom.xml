@@ -9,17 +9,16 @@
         <module>servlet3.0-helloworld</module>
         <module>servlet2.5-helloworld</module>
         <module>servlet2.5-springmvc-helloworld</module>
-        <module>servlet3.0-springmvc-helloworld1</module>
-        <module>servlet3.0-springmvc-helloworld1_1</module>
-        <module>servlet3.0-springmvc-helloworld1_2</module>
-        <module>servlet3.0-springmvc-helloworld2</module>
-        <module>servlet3.0-springmvc-helloworld2_1</module>
-        <module>servlet3.0-springmvc-helloworld2_2</module>
-        <module>servlet3.0-springmvc-helloworld3</module>
+        <module>servlet3.0-springmvc3.1-helloworld1</module>
+        <module>servlet3.0-springmvc3.1-helloworld1_1</module>
+        <module>servlet3.0-springmvc3.1-helloworld1_2</module>
+        <module>servlet3.0-springmvc3.1-helloworld2</module>
+        <module>servlet3.0-springmvc3.1-helloworld2_1</module>
+        <module>servlet3.0-springmvc3.1-helloworld2_2</module>
+        <module>servlet3.0-springmvc3.1-helloworld3</module>
         <module>servlet3.0-springmvc3.0-helloworld1</module>
         <module>servlet3.0-springmvc3.0-helloworld2</module>
-    <module>servlet3.0-springmvc3.1-helloworld0</module>
+        <module>servlet3.0-springmvc3.1-helloworld0</module>
   </modules>
     <packaging>pom</packaging>
-
 </project>
