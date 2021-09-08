@@ -107,3 +107,7 @@
 /servlet3.0-springmvc3.1-helloworld1_1/*.project
 /servlet3.0-springmvc3.1-helloworld2_2/*.project
 /servlet3.0-springmvc3.1-helloworld3/*.gitignore
+/servlet2.5-springmvc2.5-helloworld/*.classpath
+/servlet2.5-springmvc2.5-helloworld/.settings
+/servlet2.5-springmvc2.5-helloworld/*.gitignore
+/servlet2.5-springmvc2.5-helloworld/*.project
