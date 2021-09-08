@@ -70,3 +70,6 @@
 /servlet3.0-springmvc3.0-helloworld/*.project
 /servlet3.0-springmvc3.0-helloworld/.settings/*.jsdtscope
 /servlet3.0-springmvc3.0-helloworld/.settings
+/servlet3.0-springmvc3.1-helloworld0/*.classpath
+/servlet3.0-springmvc3.1-helloworld0/*.project
+/servlet3.0-springmvc3.1-helloworld0/.settings
