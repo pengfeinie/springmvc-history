@@ -12,8 +12,8 @@
     <artifactId>servlet2.5-springmvc2.5-helloworld</artifactId>
 
     <properties>
-        <maven.compiler.source>5</maven.compiler.source>
-        <maven.compiler.target>5</maven.compiler.target>
+        <maven.compiler.source>6</maven.compiler.source>
+        <maven.compiler.target>6</maven.compiler.target>
     </properties>
 
     <dependencies>
