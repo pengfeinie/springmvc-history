@@ -11,9 +11,9 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
 
     @Override
     public void onStartup(ServletContext servletContext) {
-    	AnnotationConfigWebApplicationContext annotationConfigWebApplicationContext = new AnnotationConfigWebApplicationContext();
-    	annotationConfigWebApplicationContext.register(AppConfig.class);
-    	servletContext.addListener(new ContextLoaderListener(annotationConfigWebApplicationContext));
+    	AnnotationConfigWebApplicationContext ac = new AnnotationConfigWebApplicationContext();
+    	ac.register(AppConfig.class);
+    	servletContext.addListener(new ContextLoaderListener(ac));
     	
         DispatcherServlet dispatcherServlet = new DispatcherServlet();
         dispatcherServlet.setContextClass(AnnotationConfigWebApplicationContext.class);
