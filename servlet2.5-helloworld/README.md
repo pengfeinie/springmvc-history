@@ -1,6 +1,6 @@
-Here you define the inherited methods to be generated inside the servlet, by default each servlet should implement ***doGet\*** and ***doPost\*** methods, so just keep it as is and click ¡°*Finish¡±.*
+Here you define the inherited methods to be generated inside the servlet, by default each servlet should implement doGet and doPost methods, so just keep it.
 
-After clicking finish, eclipse automatically creates a servlet class named ***HelloWorldServlet.java\*** under *org.example* package as the following:
+After clicking finish, eclipse automatically creates a servlet class named HelloWorldServlet.java under org.example package as the following:
 
 | Spec versions:          | Servlet 2.5                                                  |
 | ----------------------- | ------------------------------------------------------------ |
@@ -21,8 +21,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class HelloWorldServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	@Override
+
+	 @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("name");
         resp.getOutputStream().write(name.getBytes());
@@ -54,4 +54,4 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 
 Now, let's test.
 
-![image-20210903125137871](../images/image-20210903125137871.png)
+![image-20210903125137871](https://pengfeinie.github.io/images/image-20210903125137871.png)
