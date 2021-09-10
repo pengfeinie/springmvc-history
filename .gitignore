@@ -111,3 +111,4 @@
 /servlet2.5-springmvc2.5-helloworld/.settings
 /servlet2.5-springmvc2.5-helloworld/*.gitignore
 /servlet2.5-springmvc2.5-helloworld/*.project
+/servlet3.0-springmvc3.1-helloworld3/src/main/webapp/META-INF/*.MF
