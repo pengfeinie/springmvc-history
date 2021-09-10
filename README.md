@@ -18,7 +18,7 @@ The Java EE - Java Platform, Enterprise Edition (formerly known as J2EE) has und
 
 ### 2.3 Java timeline
 
-Java has been the one of the most used and popular language. This page covers high level time line of different versions and features introduced in each version in chronological order.![image-20210901175517116](../images/image-20210901175517116.png)
+Java has been the one of the most used and popular language. This page covers high level time line of different versions and features introduced in each version in chronological order.![image-20210901175517116](https://pengfeinie.github.io/images/image-20210901175517116.png)
 
 ## 3. Service Provider Interface
 
