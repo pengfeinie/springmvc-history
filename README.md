@@ -70,7 +70,7 @@ Different Tomcat versions implement **different** versions of the specifications
 ![image-20210901141009993](https://pengfeinie.github.io/images/image-20210901141009993.png)
 ## 6. How to Register Servlet
 
-### **XML-based**
+### **6.1 Xml-based**
 
 [Servlet-2.5](https://download.oracle.com/otn-pub/jcp/servlet-2.5-mrel2-eval-oth-JSpec/servlet-2_5-mrel2-spec.pdf) The most common way to register a servlet within your J2EE application is to add it to your *web.xml* file:
 
