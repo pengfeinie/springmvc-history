@@ -357,13 +357,11 @@ Now, let's test.
 
 ![image-20210909181059729](https://pengfeinie.github.io/images/image-20210909181059729.png)
 
-### 7.2 **Programmatic Configuration With** Servlet 3.0
+### 7.2 Servlet 3.0
 
-**Version 3 of the Servlet API has made configuration through the \*web.xml\* file completely optional.** Libraries can provide their web fragments, which are pieces of XML configuration that can register listeners, filters, servlets and so on.
+Version 3 of the Servlet API has made configuration through the web.xml file completely optional. Libraries can provide their web fragments, which are pieces of XML configuration that can register listeners, filters, servlets and so on. Also, users have access to an API that allows defining programmatically every element of a servlet-based application.
 
-Also, users have access to an API that allows defining programmatically every element of a servlet-based application.
-
-#### 7.2.1 servlet3.0-helloworld
+#### 7.2.1 [Servlet3.0-helloworld](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-helloworld)
 
 | Spec versions:          | Servlet 3.0                                                  |
 | ----------------------- | ------------------------------------------------------------ |
@@ -374,13 +372,36 @@ Also, users have access to an API that allows defining programmatically every el
 | Online Javadoc:         | [Java EE 6](https://docs.oracle.com/javaee/6/api/)(2009), JDK1.6(2006) |
 | Minimum Tomcat version: | 7.0.0 (2010)                                                 |
 
-![image-20210909182759183](E:\my\pengfeinie.github.io\images\image-20210909182759183.png)
+```
+package org.example;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@WebServlet(name = "helloWorldServlet",value = {"/v1/hello/world"})
+public class HelloWorldServlet extends HttpServlet {
+	
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
+        String name = req.getParameter("name");
+        resp.getOutputStream().write(name.getBytes());
+    }
+}
+```
+
+And you can see screen short as below:
+
+![image-20210909182759183](https://pengfeinie.github.io/images/image-20210909182759183.png)
 
 Now, let's test.
 
-![image-20210903132932282](E:\my\pengfeinie.github.io\images\image-20210903132932282.png)
+![image-20210903132932282](https://pengfeinie.github.io/images/image-20210903132932282.png)
 
-#### 7.2.2 servlet3.0+springmvc3.0
+#### 7.2.2 Servlet3.0+springmvc3.0
 
 | Spec versions:          | Servlet 3.0                                                  | Spring MVC 3.0.0.RELEASE                                     |
 | ----------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -391,19 +412,48 @@ Now, let's test.
 | Online Javadoc:         | [Java EE 6](https://docs.oracle.com/javaee/6/api/)(2009), JDK1.6(2006) | [Spring MVC 3.0](https://docs.spring.io/spring-framework/docs/3.0.x/spring-framework-reference/html/mvc.html) |
 | Minimum Tomcat version: | 7.0.0 (2010)                                                 | /                                                            |
 
-##### 7.2.2.1 servlet3.0-springmvc3.0-helloworld1
+##### 7.2.2.1 [Servlet3.0-springmvc3.0-helloworld1](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.0-helloworld1)
 
-![image-20210909143608482](E:\my\pengfeinie.github.io\images\image-20210909143608482.png)
+```
+package org.example;
 
-![image-20210909143814027](E:\my\pengfeinie.github.io\images\image-20210909143814027.png)
+import org.springframework.web.context.ContextLoaderListener;
+import org.springframework.web.servlet.DispatcherServlet;
+import java.util.Set;
+import javax.servlet.ServletContainerInitializer;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRegistration;
 
-![image-20210909144719169](E:\my\pengfeinie.github.io\images\image-20210909144719169.png)
+public class MyServletContainerInitializer implements ServletContainerInitializer {
 
-![image-20210909144143687](E:\my\pengfeinie.github.io\images\image-20210909144143687.png)
+	
+	public void onStartup(Set<Class<?>> c, ServletContext ctx)throws ServletException{
+		ctx.setInitParameter("contextConfigLocation", "classpath:applicationContext.xml");
+        ctx.addListener(new ContextLoaderListener());
+        
+        DispatcherServlet dispatcherServlet = new DispatcherServlet();
+        dispatcherServlet.setContextConfigLocation("classpath:dispatcherServlet-servlet.xml");
+        ServletRegistration.Dynamic registration = ctx.addServlet("dispatcherServlet", dispatcherServlet);
+        registration.setLoadOnStartup(1);
+        registration.addMapping("/");
+	}
+}
+```
+
+And in META-INF/services, you should add a file which named javax.servlet.ServletContainerInitializer, you should put org.example.MyServletContainerInitializer in it.
+
+![image-20210909143814027](https://pengfeinie.github.io/images/image-20210909143814027.png)
+
+If you deploy your app to tomcat, you will see the screen as below:
+
+![image-20210909144719169](https://pengfeinie.github.io/images/image-20210909144719169.png)
+
+![image-20210909144143687](https://pengfeinie.github.io/images/image-20210909144143687.png)
 
 ![image-20210909150032612](E:\my\pengfeinie.github.io\images\image-20210909150032612.png)
 
-##### 7.2.2.2 servlet3.0-springmvc3.0-helloworld2
+##### 7.2.2.2 Servlet3.0-springmvc3.0-helloworld2
 
 ![image-20210909151351785](E:\my\pengfeinie.github.io\images\image-20210909151351785.png)
 
