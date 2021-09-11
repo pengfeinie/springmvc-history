@@ -1,8 +1,22 @@
+* [<strong>1\. Introduction</strong>](#1-introduction)
+* [<strong>2\. Java Ecosystem</strong>](#2-java-ecosystem)
+  * [2\.1 Servlet timeline](#21-servlet-timeline)
+  * [2\.2 J2EE timeline](#22-j2ee-timeline)
+  * [2\.3 Java timeline](#23-java-timeline)
+* [3\. Service Provider Interface](#3-service-provider-interface)
+  * [3\.1 <strong>Overview</strong>](#31-overview)
+  * [3\.2 <strong>Terms and Definitions of Java SPI</strong>](#32-terms-and-definitions-of-java-spi)
+* [4\. Servlet container](#4-servlet-container)
+  * [4\.1 Overview](#41-overview)
+* [5\. Spring](#5-spring)
+* [6\. How to Register Servlet](#6-how-to-register-servlet)
+  * [<strong>6\.1 Xml\-based</strong>](#61-xml-based)
+  * [<strong>6\.2 Annotations\-based</strong>](#62-annotations-based)
+  * [6\.3 <strong>Programmatic\-based</strong>](#63-programmatic-based)
+
 ## **1. Introduction**
 
-When using Spring in a web application, we have several options for organizing the application contexts that wire it all up.
-
-In this article, we're going to analyze and explain the most common options that Spring offers.
+When using Spring in a web application, we have several options for organizing the application contexts that wire it all up. In this article, we're going to analyze and explain the most common options that Spring offers.
 
 ## **2. Java Ecosystem**
 
