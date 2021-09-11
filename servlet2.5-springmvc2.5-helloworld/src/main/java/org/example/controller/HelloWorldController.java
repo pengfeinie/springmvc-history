@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 public class HelloWorldController {
 
 
-	@Autowired
-	private HelloService helloService;
+    @Autowired
+    private HelloService helloService;
 	
     @RequestMapping(value = "/v1/hello/world")
     public void hello(@RequestParam String name, HttpServletResponse response) throws Exception{

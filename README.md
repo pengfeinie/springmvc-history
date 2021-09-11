@@ -169,7 +169,7 @@ The return value of this method is a ServletRegistration or a ServletRegistratio
 
 ### 7.1 Servlet 2.5
 
-#### 7.1.1 [servlet2.5-helloworld](https://github.com/pengfeinie/springmvc-history/tree/master/servlet2.5-helloworld)
+#### 7.1.1 [Servlet2.5-helloworld](https://github.com/pengfeinie/springmvc-history/tree/master/servlet2.5-helloworld)
 
 Here you define the inherited methods to be generated inside the servlet, by default each servlet should implement doGet methods. After clicking finish, eclipse automatically creates a servlet class named HelloWorldServlet.java under *org.example* package as the following:
 
@@ -222,13 +222,15 @@ it also writes the definition of the servlet under web.xml as the following:
 </web-app>
 ```
 
+And you can see screen short as below:
+
 ![image-20210903125025664](https://pengfeinie.github.io/images/image-20210903125025664.png)
 
 Now, let's test.
 
 ![image-20210903125137871](https://pengfeinie.github.io/images/image-20210903125137871.png)
 
-#### 7.1.2 servlet2.5-springmvc2.5-helloworld
+#### 7.1.2 [Servlet2.5-springmvc2.5-helloworld](https://github.com/pengfeinie/springmvc-history/tree/master/servlet2.5-springmvc2.5-helloworld)
 
 Every Spring webapp has an associated application context that is tied to its lifecycle: the root web application context.
 
@@ -249,21 +251,111 @@ The root web application context described in the previous section is managed by
 | Online Javadoc:         | [Java EE 5](https://docs.oracle.com/javaee/5/api/)(2006), JDK1.6(2006) | [Spring MVC 2.5](https://docs.spring.io/spring-framework/docs/2.5.x/reference/mvc.html) |
 | Minimum Tomcat version: | 6.0.0 (2007)                                                 | /                                                            |
 
-![image-20210909180514938](E:\my\pengfeinie.github.io\images\image-20210909180514938.png)
+It writes the definition of the servlet under web.xml as the following:
+
+```
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         id="WebApp_ID" version="2.5">
+    
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml</param-value>
+    </context-param>
+    
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <servlet>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+        	<param-name>contextConfigLocation</param-name>
+        	<param-value>classpath:dispatcherServlet-servlet.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>     
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+</web-app>
+```
 
 By default, the listener will load an XML application context from applicationContext.xml.
 
-![image-20210901185354636](E:\my\pengfeinie.github.io\images\image-20210901185354636.png)
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+     http://www.springframework.org/schema/context 
+     http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+   <context:component-scan base-package="org.example.service"/>
+
+</beans>
+```
 
 And the dispatch servlet will load an XML application context from dispatchServlet-servlet.xml.
 
-![image-20210901185522325](E:\my\pengfeinie.github.io\images\image-20210901185522325.png)
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <context:component-scan base-package="org.example.controller"/>
+
+</beans>
+```
 
 We can show hello world controller as below.
 
-![image-20210909180918831](E:\my\pengfeinie.github.io\images\image-20210909180918831.png)
+```
+package org.example.controller;
 
-![image-20210909181059729](E:\my\pengfeinie.github.io\images\image-20210909181059729.png)
+import org.example.service.HelloService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import javax.servlet.http.HttpServletResponse;
+
+@Controller
+public class HelloWorldController {
+
+
+    @Autowired
+    private HelloService helloService;
+	
+    @RequestMapping(value = "/v1/hello/world")
+    public void hello(@RequestParam String name, HttpServletResponse response) throws Exception{
+        response.getOutputStream().write(helloService.getHelloMessage(name).getBytes());
+    }
+
+}
+```
+
+And you can see screen short as below:
+
+![image-20210909180918831](https://pengfeinie.github.io/images/image-20210909180918831.png)
+
+Now, let's test.
+
+![image-20210909181059729](https://pengfeinie.github.io/images/image-20210909181059729.png)
 
 ### 7.2 **Programmatic Configuration With** Servlet 3.0
 
