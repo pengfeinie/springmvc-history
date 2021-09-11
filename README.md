@@ -1,24 +1,41 @@
-* [<strong>1\. Introduction</strong>](#1-introduction)
-* [<strong>2\. Java Ecosystem</strong>](#2-java-ecosystem)
+* [1\. Introduction](#1-introduction)
+* [2\. Java Ecosystem](#2-java-ecosystem)
   * [2\.1 Servlet timeline](#21-servlet-timeline)
   * [2\.2 J2EE timeline](#22-j2ee-timeline)
   * [2\.3 Java timeline](#23-java-timeline)
 * [3\. Service Provider Interface](#3-service-provider-interface)
-  * [3\.1 <strong>Overview</strong>](#31-overview)
-  * [3\.2 <strong>Terms and Definitions of Java SPI</strong>](#32-terms-and-definitions-of-java-spi)
+  * [3\.1 Overview](#31-overview)
+  * [3\.2 Terms and Definitions of Java SPI](#32-terms-and-definitions-of-java-spi)
 * [4\. Servlet container](#4-servlet-container)
   * [4\.1 Overview](#41-overview)
 * [5\. Spring](#5-spring)
 * [6\. How to Register Servlet](#6-how-to-register-servlet)
-  * [<strong>6\.1 Xml\-based</strong>](#61-xml-based)
-  * [<strong>6\.2 Annotations\-based</strong>](#62-annotations-based)
-  * [6\.3 <strong>Programmatic\-based</strong>](#63-programmatic-based)
+  * [6\.1 Xml\-based](#61-xml-based)
+  * [6\.2 Annotations\-based](#62-annotations-based)
+  * [6\.3 Programmatic\-based](#63-programmatic-based)
+* [7\. Web Application](#7-web-application)
+  * [7\.1 Servlet 2\.5](#71-servlet-25)
+    * [7\.1\.1 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet2\.5\-helloworld">Servlet2\
+    .5\-helloworld</a>](#711-servlet25-helloworld)
+    * [7\.1\.2 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet2\.5\-springmvc2\.5\-hellow
+    orld">Servlet2\.5\-springmvc2\.5\-helloworld</a>](#712-servlet25-springmvc25-helloworld)
+  * [7\.2 Servlet 3\.0](#72-servlet-30)
+    * [7\.2\.1 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet3\.0\-helloworld">Servlet3\
+    .0\-helloworld</a>](#721-servlet30-helloworld)
+    * [7\.2\.2 Servlet3\.0\+springmvc3\.0](#722-servlet30springmvc30)
+      * [7\.2\.2\.1 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet3\.0\-springmvc3\.0\-h
+      elloworld1">Servlet3\.0\-springmvc3\.0\-helloworld1</a>](#7221-servlet30-springmvc30-helloworld1)
+      * [7\.2\.2\.2 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet3\.0\-springmvc3\.0\-h
+      elloworld2">Servlet3\.0\-springmvc3\.0\-helloworld2</a>](#7222-servlet30-springmvc30-helloworld2)
+    * [7\.2\.3 servlet3\.0\+springmvc3\.1](#723-servlet30springmvc31)
+      * [7\.2\.3\.1 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet3\.0\-springmvc3\.1\-h
+      elloworld0">Servlet3\.0\-springmvc3\.1\-helloworld0</a>](#7231-servlet30-springmvc31-helloworld0)
 
-## **1. Introduction**
+## 1. Introduction
 
 When using Spring in a web application, we have several options for organizing the application contexts that wire it all up. In this article, we're going to analyze and explain the most common options that Spring offers.
 
-## **2. Java Ecosystem**
+## 2. Java Ecosystem
 
 ### 2.1 Servlet timeline
 
@@ -36,11 +53,11 @@ Java has been the one of the most used and popular language. This page covers hi
 
 ## 3. Service Provider Interface
 
-### 3.1 **Overview**
+### 3.1 Overview
 
 Java 6 has introduced a feature for discovering and loading implementations matching a given interface: Service Provider Interface (SPI). Service Provider Interface is an API proposed to be implemented or customized by a third-party provider. It can use as an extension or replaceable by existing implementations. A Service is an extension of the set of interfaces, and Service Provider is an implementation of the service. Classes in the provider category will generally implement the service interface or expand the classes provided in the service. A Service Provider will provide a feature to customize the provider according to the requirements. Service Provider provides the feature to extend the service without modifying the original code base.
 
-### 3.2 **Terms and Definitions of Java SPI**
+### 3.2 Terms and Definitions of Java SPI
 
 **Service**
 
@@ -453,21 +470,21 @@ If you deploy your app to tomcat, you will see the screen as below:
 
 ![image-20210909150032612](E:\my\pengfeinie.github.io\images\image-20210909150032612.png)
 
-##### 7.2.2.2 Servlet3.0-springmvc3.0-helloworld2
+##### 7.2.2.2 [Servlet3.0-springmvc3.0-helloworld2](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.0-helloworld2)
 
-![image-20210909151351785](E:\my\pengfeinie.github.io\images\image-20210909151351785.png)
+![image-20210909151351785](https://pengfeinie.github.io/images/image-20210909151351785.png)
 
-![image-20210909152047692](E:\my\pengfeinie.github.io\images\image-20210909152047692.png)
+![image-20210909152047692](https://pengfeinie.github.io/images/image-20210909152047692.png)
 
-![image-20210909152131056](E:\my\pengfeinie.github.io\images\image-20210909152131056.png)
+![image-20210909152131056](https://pengfeinie.github.io/images/image-20210909152131056.png)
 
-![image-20210909152817674](E:\my\pengfeinie.github.io\images\image-20210909152817674.png)
+![image-20210909152817674](https://pengfeinie.github.io/images/image-20210909152817674.png)
 
-![image-20210909152924856](E:\my\pengfeinie.github.io\images\image-20210909152924856.png)
+![image-20210909152924856](https://pengfeinie.github.io/images/image-20210909152924856.png)
 
-![image-20210909153033310](E:\my\pengfeinie.github.io\images\image-20210909153033310.png)
+![image-20210909153033310](https://pengfeinie.github.io/images/image-20210909153033310.png)
 
-#### 7.2.2 servlet3.0+springmvc3.1
+#### 7.2.3 servlet3.0+springmvc3.1
 
 The *spring-web* module makes use of these features and offers its API to register components of the application when it starts.
 
@@ -484,9 +501,11 @@ Let's now look at how we can use this facility to create the same types of root 
 | Online Javadoc:         | [Java EE 6](https://docs.oracle.com/javaee/6/api/)(2009), JDK1.6(2006) | [Spring MVC 3.1](https://docs.spring.io/spring-framework/docs/3.1.x/spring-framework-reference/html/mvc.html) |
 | Minimum Tomcat version: | 7.0.0 (2010)                                                 | /                                                            |
 
-![image-20210909184335118](E:\my\pengfeinie.github.io\images\image-20210909184335118.png)
+##### 7.2.3.1 [Servlet3.0-springmvc3.1-helloworld0](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.1-helloworld0)
 
-![image-20210910124314829](E:\my\pengfeinie.github.io\images\image-20210910124314829.png)
+![image-20210909184335118](https://pengfeinie.github.io/images/image-20210909184335118.png)
+
+![image-20210910124314829](https://pengfeinie.github.io/images/image-20210910124314829.png)
 
 So we can see there is a bug that tomcat 7 cannot load third party jar meta-info services. This bug is fixed in  tomcat 8.
 
