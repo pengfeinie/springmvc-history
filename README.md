@@ -15,13 +15,11 @@
   * [6\.3 Programmatic\-based](#63-programmatic-based)
 * [7\. Web Application](#7-web-application)
   * [7\.1 Servlet 2\.5](#71-servlet-25)
-    * [7\.1\.1 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet2\.5\-helloworld">Servlet2\
-    .5\-helloworld</a>](#711-servlet25-helloworld)
+    * [7\.1\.1 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet2\.5\-helloworld">Servlet2\.5\-helloworld</a>](#711-servlet25-helloworld)
     * [7\.1\.2 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet2\.5\-springmvc2\.5\-hellow
     orld">Servlet2\.5\-springmvc2\.5\-helloworld</a>](#712-servlet25-springmvc25-helloworld)
   * [7\.2 Servlet 3\.0](#72-servlet-30)
-    * [7\.2\.1 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet3\.0\-helloworld">Servlet3\
-    .0\-helloworld</a>](#721-servlet30-helloworld)
+    * [7\.2\.1 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet3\.0\-helloworld">Servlet3\.0\-helloworld</a>](#721-servlet30-helloworld)
     * [7\.2\.2 Servlet3\.0\+springmvc3\.0](#722-servlet30springmvc30)
       * [7\.2\.2\.1 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet3\.0\-springmvc3\.0\-h
       elloworld1">Servlet3\.0\-springmvc3\.0\-helloworld1</a>](#7221-servlet30-springmvc30-helloworld1)
