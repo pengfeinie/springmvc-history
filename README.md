@@ -444,14 +444,13 @@ public class MyServletContainerInitializer implements ServletContainerInitialize
 
 	
 	public void onStartup(Set<Class<?>> c, ServletContext ctx)throws ServletException{
-		ctx.setInitParameter("contextConfigLocation", "classpath:applicationContext.xml");
-        ctx.addListener(new ContextLoaderListener());
-        
-        DispatcherServlet dispatcherServlet = new DispatcherServlet();
-        dispatcherServlet.setContextConfigLocation("classpath:dispatcherServlet-servlet.xml");
-        ServletRegistration.Dynamic registration = ctx.addServlet("dispatcherServlet", dispatcherServlet);
-        registration.setLoadOnStartup(1);
-        registration.addMapping("/");
+	        ctx.setInitParameter("contextConfigLocation", "classpath:applicationContext.xml");
+            ctx.addListener(new ContextLoaderListener());        
+            DispatcherServlet dispatcherServlet = new DispatcherServlet();
+            dispatcherServlet.setContextConfigLocation("classpath:dispatcherServlet-servlet.xml");
+            ServletRegistration.Dynamic registration = ctx.addServlet("dispatcherServlet", dispatcherServlet);
+            registration.setLoadOnStartup(1);
+            registration.addMapping("/");
 	}
 }
 ```
