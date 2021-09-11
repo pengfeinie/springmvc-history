@@ -465,7 +465,7 @@ If you deploy your app to tomcat, you will see the screen as below:
 
 ![image-20210909144143687](https://pengfeinie.github.io/images/image-20210909144143687.png)
 
-![image-20210909150032612](E:\my\pengfeinie.github.io\images\image-20210909150032612.png)
+![image-20210909150032612](https://pengfeinie.github.io/images/image-20210909150032612.png)
 
 ##### 7.2.2.2 [Servlet3.0-springmvc3.0-helloworld2](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.0-helloworld2)
 
