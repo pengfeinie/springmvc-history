@@ -420,7 +420,7 @@ Now, let's test.
 
 We also talked about Servlet 3.0 new interface `ServletContainerInitializer` briefly . Here we are going to give an example. Followings are the key points first.
 
-- [ServletContainerInitializer](https://javaee.github.io/javaee-spec/javadocs/javax/servlet/ServletContainerInitializer.html) is based on Service Provider Interface (SPI) concept. See an example on SPI [here](https://www.logicbig.com/tutorials/core-java-tutorial/java-se-api/service-loader.html).
+- [ServletContainerInitializer](https://javaee.github.io/javaee-spec/javadocs/javax/servlet/ServletContainerInitializer.html) is based on Service Provider Interface (SPI) concept. 
 
 - Implementation of `ServletContainerInitializer` interface must be configured in META-INF/services directory.
 
@@ -463,7 +463,7 @@ We also talked about Servlet 3.0 new interface `ServletContainerInitializer` bri
   }
   ```
 
-  `ServletContainerInitializer#onStartup` method is called by the servlet container (must be supporting at least Servlet 3.0 version). In that method we can do some programmatic servlet/filters/listeners additions, just like we saw a `ServletContextListener` example in the last topic.
+  `ServletContainerInitializer#onStartup` method is called by the servlet container (must be supporting at least Servlet 3.0 version). 
 
 | Spec versions:          | Servlet 3.0                                                  | Spring MVC 3.0.0.RELEASE                                     |
 | ----------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
