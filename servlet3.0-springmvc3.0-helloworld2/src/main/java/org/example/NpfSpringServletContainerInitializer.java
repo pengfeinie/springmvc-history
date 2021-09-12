@@ -19,23 +19,22 @@ public class NpfSpringServletContainerInitializer implements ServletContainerIni
 		List<NpfWebApplicationInitializer> initializers = new LinkedList<NpfWebApplicationInitializer>();
 		if (npfWebApplicationInitializer != null) {
 			for (Class<?> waiClass : npfWebApplicationInitializer) {
-				if (!waiClass.isInterface() && !Modifier.isAbstract(waiClass.getModifiers()) && 
-						NpfWebApplicationInitializer.class.isAssignableFrom(waiClass)) {
+				if (!waiClass.isInterface() && !Modifier.isAbstract(waiClass.getModifiers()) 
+						&& NpfWebApplicationInitializer.class.isAssignableFrom(waiClass)) {
 					try {
 						initializers.add((NpfWebApplicationInitializer) waiClass.newInstance());
-					}
-					catch (Throwable ex) {
+					}catch (Throwable ex) {
 						throw new ServletException("Failed to instantiate NpfWebApplicationInitializer class", ex);
 					}
 				}
 			}
 		}
 		if (initializers.isEmpty()) {
-			servletContext.log("No Spring WebApplicationInitializer types detected on classpath");
+			servletContext.log("No NpfWebApplicationInitializer types detected on classpath");
 			return;
 		}
 		Collections.sort(initializers, new AnnotationAwareOrderComparator());
-		servletContext.log("Spring WebApplicationInitializers detected on classpath: " + initializers);
+		servletContext.log("NpfWebApplicationInitializer detected on classpath: " + initializers);
 		for (NpfWebApplicationInitializer initializer : initializers) {
 			initializer.onStartup(servletContext);
 		}

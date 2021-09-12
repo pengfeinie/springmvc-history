@@ -487,29 +487,30 @@ import javax.servlet.annotation.HandlesTypes;
 public class NpfSpringServletContainerInitializer implements ServletContainerInitializer {
 
 	
-	public void onStartup(Set<Class<?>> npfWebApplicationInitializer, ServletContext servletContext)throws ServletException{
-	   List<NpfWebApplicationInitializer> initializers = new LinkedList<NpfWebApplicationInitializer>();
-	   if (npfWebApplicationInitializer != null) {
-		for (Class<?> waiClass : npfWebApplicationInitializer) {
-		  if (!waiClass.isInterface() && !Modifier.isAbstract(waiClass.getModifiers())&&
-            NpfWebApplicationInitializer.class.isAssignableFrom(waiClass)) {
-		    try {
-                       initializers.add((NpfWebApplicationInitializer) waiClass.newInstance());
-		     }catch (Throwable ex) {
-			       throw new ServletException("Failed to instantiate NpfWebApplicationInitializer class", ex);
-		     }
-		   }
-		 }
+	public void onStartup(Set<Class<?>> npfWebApplicationInitializer, ServletContext servletContext)
+	throws ServletException{
+		List<NpfWebApplicationInitializer> initializers = new LinkedList<NpfWebApplicationInitializer>();
+		if (npfWebApplicationInitializer != null) {
+			for (Class<?> waiClass : npfWebApplicationInitializer) {
+				if (!waiClass.isInterface() && !Modifier.isAbstract(waiClass.getModifiers()) 
+						&& NpfWebApplicationInitializer.class.isAssignableFrom(waiClass)) {
+					try {
+						initializers.add((NpfWebApplicationInitializer) waiClass.newInstance());
+					}catch (Throwable ex) {
+						throw new ServletException("Failed to instantiate 
+						NpfWebApplicationInitializer class", ex);
+					}
+				}
+			}
 		}
 		if (initializers.isEmpty()) {
-			servletContext.log("No Spring WebApplicationInitializer types detected on classpath");
+			servletContext.log("No NpfWebApplicationInitializer types detected on classpath");
 			return;
 		}
 		Collections.sort(initializers, new AnnotationAwareOrderComparator());
-		servletContext.log("Spring WebApplicationInitializers detected on classpath: " + initializers);
 		for (NpfWebApplicationInitializer initializer : initializers) {
 			initializer.onStartup(servletContext);
-	    }
+		}
 	}
 }
 ```
@@ -539,9 +540,9 @@ public class MyNpfWebApplicationInitializer implements NpfWebApplicationInitiali
 	      ctx.setInitParameter("contextConfigLocation", "classpath:applicationContext.xml");
           ctx.addListener(new ContextLoaderListener());
         
-          DispatcherServlet dispatcherServlet = new DispatcherServlet();
-          dispatcherServlet.setContextConfigLocation("classpath:dispatcherServlet-servlet.xml");
-          ServletRegistration.Dynamic registration = ctx.addServlet("dispatcherServlet", dispatcherServlet);
+          DispatcherServlet d = new DispatcherServlet();
+          d.setContextConfigLocation("classpath:dispatcherServlet-servlet.xml");
+          ServletRegistration.Dynamic registration = ctx.addServlet("dispatcherServlet", d);
           registration.setLoadOnStartup(1);
           registration.addMapping("/");
 	}
