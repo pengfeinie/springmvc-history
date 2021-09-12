@@ -12,9 +12,9 @@ public class MyNpfWebApplicationInitializer implements NpfWebApplicationInitiali
 		ctx.setInitParameter("contextConfigLocation", "classpath:applicationContext.xml");
         ctx.addListener(new ContextLoaderListener());
         
-        DispatcherServlet dispatcherServlet = new DispatcherServlet();
-        dispatcherServlet.setContextConfigLocation("classpath:dispatcherServlet-servlet.xml");
-        ServletRegistration.Dynamic registration = ctx.addServlet("dispatcherServlet", dispatcherServlet);
+        DispatcherServlet d = new DispatcherServlet();
+        d.setContextConfigLocation("classpath:dispatcherServlet-servlet.xml");
+        ServletRegistration.Dynamic registration = ctx.addServlet("dispatcherServlet", d);
         registration.setLoadOnStartup(1);
         registration.addMapping("/");
 	}

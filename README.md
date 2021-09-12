@@ -576,7 +576,21 @@ Let's now look at how we can use this facility to create the same types of root 
 
 ![image-20210909184335118](https://pengfeinie.github.io/images/image-20210909184335118.png)
 
+So we can see there is a bug that tomcat 7 cannot load third party jar meta-info services. This bug is fixed in  tomcat 8. 
+
+##### 7.2.3.2 [Servlet3.0-springmvc3.1-helloworld1](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.1-helloworld1)
+
 ![image-20210910124314829](https://pengfeinie.github.io/images/image-20210910124314829.png)
 
-So we can see there is a bug that tomcat 7 cannot load third party jar meta-info services. This bug is fixed in  tomcat 8.
+##### 7.2.3.3 [Servlet3.0-springmvc3.1-helloworld1_1](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.1-helloworld1_1)
+
+##### 7.2.3.4 [Servlet3.0-springmvc3.1-helloworld1_2](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.1-helloworld1_2)
+
+##### 7.2.3.5 [Servlet3.0-springmvc3.1-helloworld2](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.1-helloworld2)
+
+##### 7.2.3.6 [Servlet3.0-springmvc3.1-helloworld2_1](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.1-helloworld2_1)
+
+##### 7.2.3.7 [Servlet3.0-springmvc3.1-helloworld2_2](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.1-helloworld2_2)
+
+##### 7.2.3.8 [Servlet3.0-springmvc3.1-helloworld3](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.1-helloworld3)
 
