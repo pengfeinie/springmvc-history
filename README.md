@@ -25,7 +25,7 @@
       elloworld1">Servlet3\.0\-springmvc3\.0\-helloworld1</a>](#7221-servlet30-springmvc30-helloworld1)
       * [7\.2\.2\.2 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet3\.0\-springmvc3\.0\-h
       elloworld2">Servlet3\.0\-springmvc3\.0\-helloworld2</a>](#7222-servlet30-springmvc30-helloworld2)
-    * [7\.2\.3 servlet3\.0\+springmvc3\.1](#723-servlet30springmvc31)
+    * [7\.2\.3 Servlet3\.0\+springmvc3\.1](#723-Servlet30springmvc31)
       * [7\.2\.3\.1 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet3\.0\-springmvc3\.1\-h
       elloworld0">Servlet3\.0\-springmvc3\.1\-helloworld0</a>](#7231-servlet30-springmvc31-helloworld0)
 
@@ -555,7 +555,7 @@ public class MyNpfWebApplicationInitializer implements NpfWebApplicationInitiali
 
 ![image-20210909153033310](https://pengfeinie.github.io/images/image-20210909153033310.png)
 
-#### 7.2.3 servlet3.0+springmvc3.1
+#### 7.2.3 Servlet3.0+springmvc3.1
 
 The *spring-web* module makes use of these features and offers its API to register components of the application when it starts.
 
