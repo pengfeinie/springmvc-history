@@ -418,6 +418,53 @@ Now, let's test.
 
 #### 7.2.2 Servlet3.0+springmvc3.0
 
+We also talked about Servlet 3.0 new interface `ServletContainerInitializer` briefly . Here we are going to give an example. Followings are the key points first.
+
+- [ServletContainerInitializer](https://javaee.github.io/javaee-spec/javadocs/javax/servlet/ServletContainerInitializer.html) is based on Service Provider Interface (SPI) concept. See an example on SPI [here](https://www.logicbig.com/tutorials/core-java-tutorial/java-se-api/service-loader.html).
+
+- Implementation of `ServletContainerInitializer` interface must be configured in META-INF/services directory.
+
+- ServletContainerInitializer has only one method:
+
+  ```
+  /**
+   *
+   * @since Servlet 3.0
+   */
+  public interface ServletContainerInitializer {
+  
+      /**
+       * Notifies this <tt>ServletContainerInitializer</tt> of the startup
+       * of the application represented by the given <tt>ServletContext</tt>.
+       *
+       * <p>If this <tt>ServletContainerInitializer</tt> is bundled in a JAR
+       * file inside the <tt>WEB-INF/lib</tt> directory of an application,
+       * its <tt>onStartup</tt> method will be invoked only once during the
+       * startup of the bundling application. If this
+       * <tt>ServletContainerInitializer</tt> is bundled inside a JAR file
+       * outside of any <tt>WEB-INF/lib</tt> directory, but still
+       * discoverable as described above, its <tt>onStartup</tt> method
+       * will be invoked every time an application is started.
+       *
+       * @param c the Set of application classes that extend, implement, or
+       * have been annotated with the class types specified by the 
+       * {@link javax.servlet.annotation.HandlesTypes HandlesTypes} annotation,
+       * or <tt>null</tt> if there are no matches, or this
+       * <tt>ServletContainerInitializer</tt> has not been annotated with
+       * <tt>HandlesTypes</tt>
+       *
+       * @param ctx the <tt>ServletContext</tt> of the web application that
+       * is being started and in which the classes contained in <tt>c</tt>
+       * were found
+       *
+       * @throws ServletException if an error has occurred
+       */
+      public void onStartup(Set<Class<?>> c, ServletContext ctx)throws ServletException; 
+  }
+  ```
+
+  `ServletContainerInitializer#onStartup` method is called by the servlet container (must be supporting at least Servlet 3.0 version). In that method we can do some programmatic servlet/filters/listeners additions, just like we saw a `ServletContextListener` example in the last topic.
+
 | Spec versions:          | Servlet 3.0                                                  | Spring MVC 3.0.0.RELEASE                                     |
 | ----------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Main page:              | [JSR315](https://www.jcp.org/en/jsr/summary?id=315)          | [Spring MVC 3.0](https://docs.spring.io/spring-framework/docs/3.0.x/spring-framework-reference/html/mvc.html) |
