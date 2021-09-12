@@ -584,13 +584,190 @@ So we can see there is a bug that tomcat 7 cannot load third party jar meta-info
 
 ##### 7.2.3.3 [Servlet3.0-springmvc3.1-helloworld1_1](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.1-helloworld1_1)
 
+```
+package org.example;
+
+import org.springframework.web.WebApplicationInitializer;
+import org.springframework.web.servlet.DispatcherServlet;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletRegistration;
+
+public class MyWebApplicationInitializer implements WebApplicationInitializer {
+
+    @Override
+    public void onStartup(ServletContext servletContext) {
+        DispatcherServlet d = new DispatcherServlet();
+        d.setContextConfigLocation("classpath:dispatcherServlet-servlet.xml");
+        ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcherServlet", d);
+        registration.setLoadOnStartup(1);
+        registration.addMapping("/");
+    }
+}
+```
+
 ##### 7.2.3.4 [Servlet3.0-springmvc3.1-helloworld1_2](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.1-helloworld1_2)
+
+```
+package org.example;
+
+import org.springframework.web.WebApplicationInitializer;
+import org.springframework.web.context.support.XmlWebApplicationContext;
+import org.springframework.web.servlet.DispatcherServlet;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletRegistration;
+
+public class MyWebApplicationInitializer implements WebApplicationInitializer {
+
+    @Override
+    public void onStartup(ServletContext servletContext) {
+        XmlWebApplicationContext xmlApplicationContext = new XmlWebApplicationContext();
+        xmlApplicationContext.setConfigLocation("classpath:applicationContext.xml");
+        
+        DispatcherServlet d = new DispatcherServlet(xmlApplicationContext);
+        ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcherServlet", d);
+        registration.setLoadOnStartup(1);
+        registration.addMapping("/");
+    }
+}
+```
 
 ##### 7.2.3.5 [Servlet3.0-springmvc3.1-helloworld2](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.1-helloworld2)
 
+```
+package org.example;
+
+import org.springframework.web.WebApplicationInitializer;
+import org.springframework.web.context.ContextLoaderListener;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.servlet.DispatcherServlet;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletRegistration;
+
+public class MyWebApplicationInitializer implements WebApplicationInitializer {
+
+    @Override
+    public void onStartup(ServletContext servletContext) {
+    	AnnotationConfigWebApplicationContext ac = new AnnotationConfigWebApplicationContext();
+    	ac.register(AppConfig.class);
+    	servletContext.addListener(new ContextLoaderListener(ac));
+    	
+        DispatcherServlet d = new DispatcherServlet();
+        d.setContextClass(AnnotationConfigWebApplicationContext.class);
+        d.setContextConfigLocation(AppMvcConfig.class.getCanonicalName());
+        ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcherServlet", d);
+        registration.setLoadOnStartup(1);
+        registration.addMapping("/");
+    }
+}
+```
+
 ##### 7.2.3.6 [Servlet3.0-springmvc3.1-helloworld2_1](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.1-helloworld2_1)
+
+```
+package org.example;
+
+import org.springframework.web.WebApplicationInitializer;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.servlet.DispatcherServlet;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletRegistration;
+
+public class MyWebApplicationInitializer implements WebApplicationInitializer {
+
+    @Override
+    public void onStartup(ServletContext servletContext) {
+        DispatcherServlet d = new DispatcherServlet();
+        d.setContextClass(AnnotationConfigWebApplicationContext.class);
+        d.setContextConfigLocation(AppMvcConfig.class.getCanonicalName());
+        ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcherServlet", d);
+        registration.setLoadOnStartup(1);
+        registration.addMapping("/");
+    }
+}
+```
 
 ##### 7.2.3.7 [Servlet3.0-springmvc3.1-helloworld2_2](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.1-helloworld2_2)
 
+```
+package org.example;
+
+import org.springframework.web.WebApplicationInitializer;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.servlet.DispatcherServlet;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletRegistration;
+
+public class MyWebApplicationInitializer implements WebApplicationInitializer {
+
+    @Override
+    public void onStartup(ServletContext servletContext) {
+    	AnnotationConfigWebApplicationContext ac = new AnnotationConfigWebApplicationContext();
+    	ac.register(AppConfig.class);
+    	
+        DispatcherServlet d = new DispatcherServlet(ac);
+        ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcherServlet", d);
+        registration.setLoadOnStartup(1);
+        registration.addMapping("/");
+    }
+}
+```
+
 ##### 7.2.3.8 [Servlet3.0-springmvc3.1-helloworld3](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.1-helloworld3)
+
+```
+package org.example;
+
+import org.apache.catalina.Context;
+import org.apache.catalina.Engine;
+import org.apache.catalina.Host;
+import org.apache.catalina.LifecycleException;
+import org.apache.catalina.Server;
+import org.apache.catalina.Service;
+import org.apache.catalina.Wrapper;
+import org.apache.catalina.connector.Connector;
+import org.apache.catalina.core.StandardContext;
+import org.apache.catalina.core.StandardEngine;
+import org.apache.catalina.core.StandardHost;
+import org.apache.catalina.startup.Tomcat;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.servlet.DispatcherServlet;
+
+public class App {
+	
+	public static void main(String[] args) throws LifecycleException {
+		Tomcat tomcat = new Tomcat();
+
+        Server server = tomcat.getServer();
+        Service service = server.findService("Tomcat");
+
+        Connector connector = new Connector();
+        connector.setPort(9090);
+
+        Engine engine = new StandardEngine();
+        engine.setDefaultHost("localhost");
+
+        Host host = new StandardHost();
+        host.setName("localhost");
+
+        String contextPath = "";
+        Context context = new StandardContext();
+        context.setPath(contextPath);
+        context.addLifecycleListener(new Tomcat.FixContextListener());
+
+        host.addChild(context);
+        engine.addChild(host);
+
+        service.setContainer(engine);
+        service.addConnector(connector);
+        AnnotationConfigWebApplicationContext ac = new AnnotationConfigWebApplicationContext();
+        ac.register(AppConfig.class);
+        DispatcherServlet servlet = new DispatcherServlet(ac);
+        Wrapper wrapper = tomcat.addServlet(contextPath,"app", servlet);
+        wrapper.setLoadOnStartup(1);
+        wrapper.addMapping("/");
+        tomcat.start();
+        tomcat.getServer().await();
+	}
+}
+```
 

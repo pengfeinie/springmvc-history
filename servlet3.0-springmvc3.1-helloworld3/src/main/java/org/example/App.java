@@ -19,7 +19,6 @@ public class App {
 	
 	public static void main(String[] args) throws LifecycleException {
 		Tomcat tomcat = new Tomcat();
-        //File file = new File(System.getProperty("java.io.tmpdir"));
 
         Server server = tomcat.getServer();
         Service service = server.findService("Tomcat");
@@ -43,17 +42,12 @@ public class App {
 
         service.setContainer(engine);
         service.addConnector(connector);
-        //tomcat.addWebapp("/",file.getAbsolutePath());
         AnnotationConfigWebApplicationContext ac = new AnnotationConfigWebApplicationContext();
         ac.register(AppConfig.class);
         DispatcherServlet servlet = new DispatcherServlet(ac);
         Wrapper wrapper = tomcat.addServlet(contextPath,"app", servlet);
         wrapper.setLoadOnStartup(1);
         wrapper.addMapping("/");
-        
-        //ServletRegistration.Dynamic registration = servletCxt.addServlet("app", servlet);
-        
-
         tomcat.start();
         tomcat.getServer().await();
 	}

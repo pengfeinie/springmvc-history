@@ -9,9 +9,9 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
 
     @Override
     public void onStartup(ServletContext servletContext) {
-        DispatcherServlet dispatcherServlet = new DispatcherServlet();
-        dispatcherServlet.setContextConfigLocation("classpath:dispatcherServlet-servlet.xml");
-        ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcherServlet", dispatcherServlet);
+        DispatcherServlet d = new DispatcherServlet();
+        d.setContextConfigLocation("classpath:dispatcherServlet-servlet.xml");
+        ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcherServlet", d);
         registration.setLoadOnStartup(1);
         registration.addMapping("/");
     }

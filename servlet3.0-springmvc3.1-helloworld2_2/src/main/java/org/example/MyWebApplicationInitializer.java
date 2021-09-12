@@ -13,8 +13,8 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
     	AnnotationConfigWebApplicationContext ac = new AnnotationConfigWebApplicationContext();
     	ac.register(AppConfig.class);
     	
-        DispatcherServlet dispatcherServlet = new DispatcherServlet(ac);
-        ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcherServlet", dispatcherServlet);
+        DispatcherServlet d = new DispatcherServlet(ac);
+        ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcherServlet", d);
         registration.setLoadOnStartup(1);
         registration.addMapping("/");
     }
