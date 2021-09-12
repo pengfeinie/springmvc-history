@@ -444,13 +444,13 @@ public class MyServletContainerInitializer implements ServletContainerInitialize
 
 	
 	public void onStartup(Set<Class<?>> c, ServletContext ctx)throws ServletException{
-	   ctx.setInitParameter("contextConfigLocation", "classpath:applicationContext.xml");
+	    ctx.setInitParameter("contextConfigLocation", "classpath:applicationContext.xml");
             ctx.addListener(new ContextLoaderListener());        
             DispatcherServlet dispatcherServlet = new DispatcherServlet();
             dispatcherServlet.setContextConfigLocation("classpath:dispatcherServlet-servlet.xml");
-            ServletRegistration.Dynamic registration = ctx.addServlet("dispatcherServlet", dispatcherServlet);
-            registration.setLoadOnStartup(1);
-            registration.addMapping("/");
+            ServletRegistration.Dynamic re = ctx.addServlet("dispatcherServlet", dispatcherServlet);
+            re.setLoadOnStartup(1);
+            re.addMapping("/");
 	}
 }
 ```
@@ -469,11 +469,85 @@ If you deploy your app to tomcat, you will see the screen as below:
 
 ##### 7.2.2.2 [Servlet3.0-springmvc3.0-helloworld2](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.0-helloworld2)
 
-![image-20210909151351785](https://pengfeinie.github.io/images/image-20210909151351785.png)
+```
+package org.example;
 
-![image-20210909152047692](https://pengfeinie.github.io/images/image-20210909152047692.png)
+import org.springframework.core.annotation.AnnotationAwareOrderComparator;
+import java.lang.reflect.Modifier;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+import javax.servlet.ServletContainerInitializer;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.HandlesTypes;
 
-![image-20210909152131056](https://pengfeinie.github.io/images/image-20210909152131056.png)
+@HandlesTypes(value= {NpfWebApplicationInitializer.class})
+public class NpfSpringServletContainerInitializer implements ServletContainerInitializer {
+
+	
+	public void onStartup(Set<Class<?>> npfWebApplicationInitializer, ServletContext servletContext)throws ServletException{
+	   List<NpfWebApplicationInitializer> initializers = new LinkedList<NpfWebApplicationInitializer>();
+	   if (npfWebApplicationInitializer != null) {
+		for (Class<?> waiClass : npfWebApplicationInitializer) {
+		  if (!waiClass.isInterface() && !Modifier.isAbstract(waiClass.getModifiers())&&
+            NpfWebApplicationInitializer.class.isAssignableFrom(waiClass)) {
+		    try {
+                       initializers.add((NpfWebApplicationInitializer) waiClass.newInstance());
+		     }catch (Throwable ex) {
+			       throw new ServletException("Failed to instantiate NpfWebApplicationInitializer class", ex);
+		     }
+		   }
+		 }
+		}
+		if (initializers.isEmpty()) {
+			servletContext.log("No Spring WebApplicationInitializer types detected on classpath");
+			return;
+		}
+		Collections.sort(initializers, new AnnotationAwareOrderComparator());
+		servletContext.log("Spring WebApplicationInitializers detected on classpath: " + initializers);
+		for (NpfWebApplicationInitializer initializer : initializers) {
+			initializer.onStartup(servletContext);
+	    }
+	}
+}
+```
+
+```
+package org.example;
+
+import javax.servlet.ServletContext;
+
+public interface NpfWebApplicationInitializer {
+	
+	public void onStartup(ServletContext ctx);
+}
+```
+
+```
+package org.example;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletRegistration;
+import org.springframework.web.context.ContextLoaderListener;
+import org.springframework.web.servlet.DispatcherServlet;
+
+public class MyNpfWebApplicationInitializer implements NpfWebApplicationInitializer{
+
+	public void onStartup(ServletContext ctx) {
+	      ctx.setInitParameter("contextConfigLocation", "classpath:applicationContext.xml");
+          ctx.addListener(new ContextLoaderListener());
+        
+          DispatcherServlet dispatcherServlet = new DispatcherServlet();
+          dispatcherServlet.setContextConfigLocation("classpath:dispatcherServlet-servlet.xml");
+          ServletRegistration.Dynamic registration = ctx.addServlet("dispatcherServlet", dispatcherServlet);
+          registration.setLoadOnStartup(1);
+          registration.addMapping("/");
+	}
+
+}
+```
 
 ![image-20210909152817674](https://pengfeinie.github.io/images/image-20210909152817674.png)
 
