@@ -15,33 +15,22 @@
   * [6\.3 Programmatic\-based](#63-programmatic-based)
 * [7\. Web Application](#7-web-application)
   * [7\.1 Servlet 2\.5](#71-servlet-25)
-    * [7\.1\.1 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet2\.5\-helloworld">Servlet2\.5\-helloworld</a>](#711-servlet25-helloworld)
-    * [7\.1\.2 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet2\.5\-springmvc2\.5\-hellow
-    orld">Servlet2\.5\-springmvc2\.5\-helloworld</a>](#712-servlet25-springmvc25-helloworld)
+    * [7\.1\.1 Servlet2\.5\-helloworld](#711-servlet25-helloworld)
+    * [7\.1\.2 Servlet2\.5\-springmvc2\.5\-helloworld](#712-servlet25-springmvc25-helloworld)
   * [7\.2 Servlet 3\.0](#72-servlet-30)
-    * [7\.2\.1 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet3\.0\-helloworld">Servlet3\.0\-helloworld</a>](#721-servlet30-helloworld)
+    * [7\.2\.1 Servlet3\.0\-helloworld](#721-servlet30-helloworld)
     * [7\.2\.2 Servlet3\.0\+springmvc3\.0](#722-servlet30springmvc30)
-      * [7\.2\.2\.1 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet3\.0\-springmvc3\.0\-h
-      elloworld1">Servlet3\.0\-springmvc3\.0\-helloworld1</a>](#7221-servlet30-springmvc30-helloworld1)
-      * [7\.2\.2\.2 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet3\.0\-springmvc3\.0\-h
-      elloworld2">Servlet3\.0\-springmvc3\.0\-helloworld2</a>](#7222-servlet30-springmvc30-helloworld2)
+      * [7\.2\.2\.1 Servlet3\.0\-springmvc3\.0\-helloworld1](#7221-servlet30-springmvc30-helloworld1)
+      * [7\.2\.2\.2 Servlet3\.0\-springmvc3\.0\-helloworld2](#7222-servlet30-springmvc30-helloworld2)
     * [7\.2\.3 Servlet3\.0\+springmvc3\.1](#723-servlet30springmvc31)
-      * [7\.2\.3\.1 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet3\.0\-springmvc3\.1\-h
-      elloworld0">Servlet3\.0\-springmvc3\.1\-helloworld0</a>](#7231-servlet30-springmvc31-helloworld0)
-      * [7\.2\.3\.2 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet3\.0\-springmvc3\.1\-h
-      elloworld1">Servlet3\.0\-springmvc3\.1\-helloworld1</a>](#7232-servlet30-springmvc31-helloworld1)
-      * [7\.2\.3\.3 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet3\.0\-springmvc3\.1\-h
-      elloworld1\_1">Servlet3\.0\-springmvc3\.1\-helloworld1\_1</a>](#7233-servlet30-springmvc31-helloworld1_1)
-      * [7\.2\.3\.4 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet3\.0\-springmvc3\.1\-h
-      elloworld1\_2">Servlet3\.0\-springmvc3\.1\-helloworld1\_2</a>](#7234-servlet30-springmvc31-helloworld1_2)
-      * [7\.2\.3\.5 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet3\.0\-springmvc3\.1\-h
-      elloworld2">Servlet3\.0\-springmvc3\.1\-helloworld2</a>](#7235-servlet30-springmvc31-helloworld2)
-      * [7\.2\.3\.6 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet3\.0\-springmvc3\.1\-h
-      elloworld2\_1">Servlet3\.0\-springmvc3\.1\-helloworld2\_1</a>](#7236-servlet30-springmvc31-helloworld2_1)
-      * [7\.2\.3\.7 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet3\.0\-springmvc3\.1\-h
-      elloworld2\_2">Servlet3\.0\-springmvc3\.1\-helloworld2\_2</a>](#7237-servlet30-springmvc31-helloworld2_2)
-      * [7\.2\.3\.8 <a href="https://github\.com/pengfeinie/springmvc\-history/tree/master/servlet3\.0\-springmvc3\.1\-h
-      elloworld3">Servlet3\.0\-springmvc3\.1\-helloworld3</a>](#7238-servlet30-springmvc31-helloworld3)
+      * [7\.2\.3\.1 Servlet3\.0\-springmvc3\.1\-helloworld0](#7231-servlet30-springmvc31-helloworld0)
+      * [7\.2\.3\.2 Servlet3\.0\-springmvc3\.1\-helloworld1](#7232-servlet30-springmvc31-helloworld1)
+      * [7\.2\.3\.3 Servlet3\.0\-springmvc3\.1\-helloworld1\_1](#7233-servlet30-springmvc31-helloworld1_1)
+      * [7\.2\.3\.4 Servlet3\.0\-springmvc3\.1\-helloworld1\_2](#7234-servlet30-springmvc31-helloworld1_2)
+      * [7\.2\.3\.5 Servlet3\.0\-springmvc3\.1\-helloworld2](#7235-servlet30-springmvc31-helloworld2)
+      * [7\.2\.3\.6 Servlet3\.0\-springmvc3\.1\-helloworld2\_1](#7236-servlet30-springmvc31-helloworld2_1)
+      * [7\.2\.3\.7 Servlet3\.0\-springmvc3\.1\-helloworld2\_2](#7237-servlet30-springmvc31-helloworld2_2)
+      * [7\.2\.3\.8 Servlet3\.0\-springmvc3\.1\-helloworld3](#7238-servlet30-springmvc31-helloworld3)
 
 ## 1. Introduction
 
@@ -198,7 +187,7 @@ The return value of this method is a ServletRegistration or a ServletRegistratio
 
 ### 7.1 Servlet 2.5
 
-#### 7.1.1 [Servlet2.5-helloworld](https://github.com/pengfeinie/springmvc-history/tree/master/servlet2.5-helloworld)
+#### 7.1.1 Servlet2.5-helloworld
 
 Here you define the inherited methods to be generated inside the servlet, by default each servlet should implement doGet methods. After clicking finish, eclipse automatically creates a servlet class named HelloWorldServlet.java under *org.example* package as the following:
 
@@ -259,7 +248,7 @@ Now, let's test.
 
 ![image-20210903125137871](https://pengfeinie.github.io/images/image-20210903125137871.png)
 
-#### 7.1.2 [Servlet2.5-springmvc2.5-helloworld](https://github.com/pengfeinie/springmvc-history/tree/master/servlet2.5-springmvc2.5-helloworld)
+#### 7.1.2 Servlet2.5-springmvc2.5-helloworld
 
 Every Spring webapp has an associated application context that is tied to its lifecycle: the root web application context.
 
@@ -390,7 +379,7 @@ Now, let's test.
 
 Version 3 of the Servlet API has made configuration through the web.xml file completely optional. Libraries can provide their web fragments, which are pieces of XML configuration that can register listeners, filters, servlets and so on. Also, users have access to an API that allows defining programmatically every element of a servlet-based application.
 
-#### 7.2.1 [Servlet3.0-helloworld](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-helloworld)
+#### 7.2.1 Servlet3.0-helloworld
 
 | Spec versions:          | Servlet 3.0                                                  |
 | ----------------------- | ------------------------------------------------------------ |
@@ -441,7 +430,7 @@ Now, let's test.
 | Online Javadoc:         | [Java EE 6](https://docs.oracle.com/javaee/6/api/)(2009), JDK1.6(2006) | [Spring MVC 3.0](https://docs.spring.io/spring-framework/docs/3.0.x/spring-framework-reference/html/mvc.html) |
 | Minimum Tomcat version: | 7.0.0 (2010)                                                 | /                                                            |
 
-##### 7.2.2.1 [Servlet3.0-springmvc3.0-helloworld1](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.0-helloworld1)
+##### 7.2.2.1 Servlet3.0-springmvc3.0-helloworld1
 
 We also talked about Servlet 3.0 new interface `ServletContainerInitializer` briefly . Here we are going to give an example. Followings are the key points first.
 
@@ -502,7 +491,7 @@ If you deploy your app to tomcat, you will see the screen as below:
 
 ![image-20210909150032612](https://pengfeinie.github.io/images/image-20210909150032612.png)
 
-##### 7.2.2.2 [Servlet3.0-springmvc3.0-helloworld2](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.0-helloworld2)
+##### 7.2.2.2 Servlet3.0-springmvc3.0-helloworld2
 
 This section will help you understand how to use the @HandlesTypes annotation in the Java Servlet API.You know, the @HandlesTypes annotation is used to annotate a class that implements javax.servlet.ServletContainerInitializer interface. It declares the class types in which an implementation of ServletContainerInitializer is interested.
 
@@ -615,17 +604,17 @@ Let's now look at how we can use this facility to create the same types of root 
 | Online Javadoc:         | [Java EE 6](https://docs.oracle.com/javaee/6/api/)(2009), JDK1.6(2006) | [Spring MVC 3.1](https://docs.spring.io/spring-framework/docs/3.1.x/spring-framework-reference/html/mvc.html) |
 | Minimum Tomcat version: | 7.0.0 (2010)                                                 | /                                                            |
 
-##### 7.2.3.1 [Servlet3.0-springmvc3.1-helloworld0](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.1-helloworld0)
+##### 7.2.3.1 Servlet3.0-springmvc3.1-helloworld0
 
 ![image-20210909184335118](https://pengfeinie.github.io/images/image-20210909184335118.png)
 
 So we can see there is a bug that tomcat 7 cannot load third party jar meta-info services. This bug is fixed in  tomcat 8. 
 
-##### 7.2.3.2 [Servlet3.0-springmvc3.1-helloworld1](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.1-helloworld1)
+##### 7.2.3.2 Servlet3.0-springmvc3.1-helloworld1
 
 ![image-20210910124314829](https://pengfeinie.github.io/images/image-20210910124314829.png)
 
-##### 7.2.3.3 [Servlet3.0-springmvc3.1-helloworld1_1](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.1-helloworld1_1)
+##### 7.2.3.3 Servlet3.0-springmvc3.1-helloworld1_1
 
 ```
 package org.example;
@@ -648,7 +637,7 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
 }
 ```
 
-##### 7.2.3.4 [Servlet3.0-springmvc3.1-helloworld1_2](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.1-helloworld1_2)
+##### 7.2.3.4 Servlet3.0-springmvc3.1-helloworld1_2
 
 ```
 package org.example;
@@ -674,7 +663,7 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
 }
 ```
 
-##### 7.2.3.5 [Servlet3.0-springmvc3.1-helloworld2](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.1-helloworld2)
+##### 7.2.3.5 Servlet3.0-springmvc3.1-helloworld2
 
 ```
 package org.example;
@@ -704,7 +693,7 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
 }
 ```
 
-##### 7.2.3.6 [Servlet3.0-springmvc3.1-helloworld2_1](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.1-helloworld2_1)
+##### 7.2.3.6 Servlet3.0-springmvc3.1-helloworld2_1
 
 ```
 package org.example;
@@ -729,7 +718,7 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
 }
 ```
 
-##### 7.2.3.7 [Servlet3.0-springmvc3.1-helloworld2_2](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.1-helloworld2_2)
+##### 7.2.3.7 Servlet3.0-springmvc3.1-helloworld2_2
 
 ```
 package org.example;
@@ -755,7 +744,7 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
 }
 ```
 
-##### 7.2.3.8 [Servlet3.0-springmvc3.1-helloworld3](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.1-helloworld3)
+##### 7.2.3.8 Servlet3.0-springmvc3.1-helloworld3
 
 ```
 package org.example;
