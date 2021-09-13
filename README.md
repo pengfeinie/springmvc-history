@@ -582,6 +582,12 @@ Spring scans the application's classpath for instances of the *org.springframewo
 
 Let's now look at how we can use this facility to create the same types of root web application contexts that we've seen earlier.
 
+[https://github.com/spring-projects/spring-framework/tree/3.1.x/org.springframework.web/src/main/resources/META-INF/services](https://github.com/spring-projects/spring-framework/tree/3.1.x/org.springframework.web/src/main/resources/META-INF/services)
+
+[https://github.com/spring-projects/spring-framework/commit/c9e67b2ef25ff1f5de32e4fc75a36f076fd14f35](https://github.com/spring-projects/spring-framework/commit/c9e67b2ef25ff1f5de32e4fc75a36f076fd14f35)
+
+![image-20210913134424120](https://pengfeinie.github.io/images/image-20210913134424120.png)
+
 | Spec versions:          | Servlet 3.0                                                  | Spring MVC 3.1.0.RELEASE                                     |
 | ----------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Main page:              | [JSR315](https://www.jcp.org/en/jsr/summary?id=315)          | [Spring MVC 3.1](https://docs.spring.io/spring-framework/docs/3.1.x/spring-framework-reference/html/mvc.html) |
