@@ -418,6 +418,17 @@ Now, let's test.
 
 #### 7.2.2 Servlet3.0+springmvc3.0
 
+| Spec versions:          | Servlet 3.0                                                  | Spring MVC 3.0.0.RELEASE                                     |
+| ----------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Main page:              | [JSR315](https://www.jcp.org/en/jsr/summary?id=315)          | [Spring MVC 3.0](https://docs.spring.io/spring-framework/docs/3.0.x/spring-framework-reference/html/mvc.html) |
+| Stable:                 | Final Release                                                | Final Release                                                |
+| Date:                   | 10 Dec, 2009                                                 | Dec, 2009                                                    |
+| Download Page:          | [Overview](https://jcp.org/aboutJava/communityprocess/final/jsr315/index.html) [Direct Download](https://download.oracle.com/otndocs/jcp/servlet-3.0-fr-eval-oth-JSpec/) | [Overview](https://jcp.org/aboutJava/communityprocess/final/jsr340/index.html) [Direct Download](https://mvnrepository.com/artifact/org.springframework/spring-web/3.0.0.RELEASE) |
+| Online Javadoc:         | [Java EE 6](https://docs.oracle.com/javaee/6/api/)(2009), JDK1.6(2006) | [Spring MVC 3.0](https://docs.spring.io/spring-framework/docs/3.0.x/spring-framework-reference/html/mvc.html) |
+| Minimum Tomcat version: | 7.0.0 (2010)                                                 | /                                                            |
+
+##### 7.2.2.1 [Servlet3.0-springmvc3.0-helloworld1](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.0-helloworld1)
+
 We also talked about Servlet 3.0 new interface `ServletContainerInitializer` briefly . Here we are going to give an example. Followings are the key points first.
 
 - [ServletContainerInitializer](https://javaee.github.io/javaee-spec/javadocs/javax/servlet/ServletContainerInitializer.html) is based on Service Provider Interface (SPI) concept. 
@@ -436,19 +447,8 @@ We also talked about Servlet 3.0 new interface `ServletContainerInitializer` bri
       public void onStartup(Set<Class<?>> c, ServletContext ctx)throws ServletException; 
   }
   ```
-  
+
   `ServletContainerInitializer#onStartup` method is called by the servlet container (must be supporting at least Servlet 3.0 version). 
-
-| Spec versions:          | Servlet 3.0                                                  | Spring MVC 3.0.0.RELEASE                                     |
-| ----------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Main page:              | [JSR315](https://www.jcp.org/en/jsr/summary?id=315)          | [Spring MVC 3.0](https://docs.spring.io/spring-framework/docs/3.0.x/spring-framework-reference/html/mvc.html) |
-| Stable:                 | Final Release                                                | Final Release                                                |
-| Date:                   | 10 Dec, 2009                                                 | Dec, 2009                                                    |
-| Download Page:          | [Overview](https://jcp.org/aboutJava/communityprocess/final/jsr315/index.html) [Direct Download](https://download.oracle.com/otndocs/jcp/servlet-3.0-fr-eval-oth-JSpec/) | [Overview](https://jcp.org/aboutJava/communityprocess/final/jsr340/index.html) [Direct Download](https://mvnrepository.com/artifact/org.springframework/spring-web/3.0.0.RELEASE) |
-| Online Javadoc:         | [Java EE 6](https://docs.oracle.com/javaee/6/api/)(2009), JDK1.6(2006) | [Spring MVC 3.0](https://docs.spring.io/spring-framework/docs/3.0.x/spring-framework-reference/html/mvc.html) |
-| Minimum Tomcat version: | 7.0.0 (2010)                                                 | /                                                            |
-
-##### 7.2.2.1 [Servlet3.0-springmvc3.0-helloworld1](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.0-helloworld1)
 
 ```
 package org.example;
@@ -489,6 +489,10 @@ If you deploy your app to tomcat, you will see the screen as below:
 ![image-20210909150032612](https://pengfeinie.github.io/images/image-20210909150032612.png)
 
 ##### 7.2.2.2 [Servlet3.0-springmvc3.0-helloworld2](https://github.com/pengfeinie/springmvc-history/tree/master/servlet3.0-springmvc3.0-helloworld2)
+
+This section will help you understand how to use the @HandlesTypes annotation in the Java Servlet API.You know, the @HandlesTypes annotation is used to annotate a class that implements javax.servlet.ServletContainerInitializer interface. It declares the class types in which an implementation of ServletContainerInitializer is interested.
+
+The Servlet container will find and pass a Set of application classes that extend, implement, or have been annotated with the class types listed by the @HandlesTypes annotation as the first argument of the onStartup() method. If the container did not find any matching classes, it will pass null.
 
 ```
 package org.example;
