@@ -557,13 +557,13 @@ import org.springframework.web.servlet.DispatcherServlet;
 public class MyNpfWebApplicationInitializer implements NpfWebApplicationInitializer{
 
 	public void onStartup(ServletContext ctx) {
-	   ctx.setInitParameter("contextConfigLocation", "classpath:applicationContext.xml");
-          ctx.addListener(new ContextLoaderListener());
-          DispatcherServlet d = new DispatcherServlet();
-          d.setContextConfigLocation("classpath:dispatcherServlet-servlet.xml");
-          ServletRegistration.Dynamic r = ctx.addServlet("dispatcherServlet", d);
-          r.setLoadOnStartup(1);
-          r.addMapping("/");
+	    ctx.setInitParameter("contextConfigLocation", "classpath:applicationContext.xml");
+            ctx.addListener(new ContextLoaderListener());
+            DispatcherServlet d = new DispatcherServlet();
+            d.setContextConfigLocation("classpath:dispatcherServlet-servlet.xml");
+            ServletRegistration.Dynamic r = ctx.addServlet("dispatcherServlet", d);
+            r.setLoadOnStartup(1);
+            r.addMapping("/");
 	}
 }
 ```
@@ -754,7 +754,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 public class App {
 	
 	public static void main(String[] args) throws LifecycleException {
-		Tomcat tomcat = new Tomcat();
+Tomcat tomcat = new Tomcat();
 
         Server server = tomcat.getServer();
         Service service = server.findService("Tomcat");
