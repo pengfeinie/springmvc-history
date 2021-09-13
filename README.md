@@ -171,9 +171,9 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
     	AnnotationConfigWebApplicationContext ac = new AnnotationConfigWebApplicationContext();
     	ac.register(AppConfig.class);
         DispatcherServlet d = new DispatcherServlet(ac);
-        ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcherServlet", d);
-        registration.setLoadOnStartup(1);
-        registration.addMapping("/");
+        ServletRegistration.Dynamic r = servletContext.addServlet("dispatcherServlet", d);
+        r.setLoadOnStartup(1);
+        r.addMapping("/");
     }
 }
 ```
@@ -433,36 +433,10 @@ We also talked about Servlet 3.0 new interface `ServletContainerInitializer` bri
    */
   public interface ServletContainerInitializer {
   
-      /**
-       * Notifies this <tt>ServletContainerInitializer</tt> of the startup
-       * of the application represented by the given <tt>ServletContext</tt>.
-       *
-       * <p>If this <tt>ServletContainerInitializer</tt> is bundled in a JAR
-       * file inside the <tt>WEB-INF/lib</tt> directory of an application,
-       * its <tt>onStartup</tt> method will be invoked only once during the
-       * startup of the bundling application. If this
-       * <tt>ServletContainerInitializer</tt> is bundled inside a JAR file
-       * outside of any <tt>WEB-INF/lib</tt> directory, but still
-       * discoverable as described above, its <tt>onStartup</tt> method
-       * will be invoked every time an application is started.
-       *
-       * @param c the Set of application classes that extend, implement, or
-       * have been annotated with the class types specified by the 
-       * {@link javax.servlet.annotation.HandlesTypes HandlesTypes} annotation,
-       * or <tt>null</tt> if there are no matches, or this
-       * <tt>ServletContainerInitializer</tt> has not been annotated with
-       * <tt>HandlesTypes</tt>
-       *
-       * @param ctx the <tt>ServletContext</tt> of the web application that
-       * is being started and in which the classes contained in <tt>c</tt>
-       * were found
-       *
-       * @throws ServletException if an error has occurred
-       */
       public void onStartup(Set<Class<?>> c, ServletContext ctx)throws ServletException; 
   }
   ```
-
+  
   `ServletContainerInitializer#onStartup` method is called by the servlet container (must be supporting at least Servlet 3.0 version). 
 
 | Spec versions:          | Servlet 3.0                                                  | Spring MVC 3.0.0.RELEASE                                     |
@@ -493,9 +467,9 @@ public class MyServletContainerInitializer implements ServletContainerInitialize
 	public void onStartup(Set<Class<?>> c, ServletContext ctx)throws ServletException{
 	    ctx.setInitParameter("contextConfigLocation", "classpath:applicationContext.xml");
             ctx.addListener(new ContextLoaderListener());        
-            DispatcherServlet dispatcherServlet = new DispatcherServlet();
-            dispatcherServlet.setContextConfigLocation("classpath:dispatcherServlet-servlet.xml");
-            ServletRegistration.Dynamic re = ctx.addServlet("dispatcherServlet", dispatcherServlet);
+            DispatcherServlet d = new DispatcherServlet();
+            d.setContextConfigLocation("classpath:dispatcherServlet-servlet.xml");
+            ServletRegistration.Dynamic re = ctx.addServlet("dispatcherServlet", d);
             re.setLoadOnStartup(1);
             re.addMapping("/");
 	}
@@ -534,11 +508,11 @@ import javax.servlet.annotation.HandlesTypes;
 public class NpfSpringServletContainerInitializer implements ServletContainerInitializer {
 
 	
-	public void onStartup(Set<Class<?>> npfWebApplicationInitializer, ServletContext servletContext)
+	public void onStartup(Set<Class<?>> initializer, ServletContext servletContext)
 	throws ServletException{
 	 List<NpfWebApplicationInitializer> initializers = new LinkedList<NpfWebApplicationInitializer>();
-	 if (npfWebApplicationInitializer != null) {
-	  for (Class<?> waiClass : npfWebApplicationInitializer) {
+	 if (initializer != null) {
+	  for (Class<?> waiClass : initializer) {
 		if (!waiClass.isInterface() && !Modifier.isAbstract(waiClass.getModifiers()) 
 		  && NpfWebApplicationInitializer.class.isAssignableFrom(waiClass)) {
 		  try {
@@ -554,8 +528,8 @@ public class NpfSpringServletContainerInitializer implements ServletContainerIni
 		return;
 	  }
 	  Collections.sort(initializers, new AnnotationAwareOrderComparator());
-	  for (NpfWebApplicationInitializer initializer : initializers) {
-		initializer.onStartup(servletContext);
+	  for (NpfWebApplicationInitializer item : initializers) {
+		item.onStartup(servletContext);
 	  }
 	}
 }
@@ -587,9 +561,9 @@ public class MyNpfWebApplicationInitializer implements NpfWebApplicationInitiali
           ctx.addListener(new ContextLoaderListener());
           DispatcherServlet d = new DispatcherServlet();
           d.setContextConfigLocation("classpath:dispatcherServlet-servlet.xml");
-          ServletRegistration.Dynamic registration = ctx.addServlet("dispatcherServlet", d);
-          registration.setLoadOnStartup(1);
-          registration.addMapping("/");
+          ServletRegistration.Dynamic r = ctx.addServlet("dispatcherServlet", d);
+          r.setLoadOnStartup(1);
+          r.addMapping("/");
 	}
 }
 ```
@@ -643,9 +617,9 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
     public void onStartup(ServletContext servletContext) {
         DispatcherServlet d = new DispatcherServlet();
         d.setContextConfigLocation("classpath:dispatcherServlet-servlet.xml");
-        ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcherServlet", d);
-        registration.setLoadOnStartup(1);
-        registration.addMapping("/");
+        ServletRegistration.Dynamic r = servletContext.addServlet("dispatcherServlet", d);
+        r.setLoadOnStartup(1);
+        r.addMapping("/");
     }
 }
 ```
@@ -669,9 +643,9 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
         xmlApplicationContext.setConfigLocation("classpath:applicationContext.xml");
         
         DispatcherServlet d = new DispatcherServlet(xmlApplicationContext);
-        ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcherServlet", d);
-        registration.setLoadOnStartup(1);
-        registration.addMapping("/");
+        ServletRegistration.Dynamic r = servletContext.addServlet("dispatcherServlet", d);
+        r.setLoadOnStartup(1);
+        r.addMapping("/");
     }
 }
 ```
@@ -699,9 +673,9 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
         DispatcherServlet d = new DispatcherServlet();
         d.setContextClass(AnnotationConfigWebApplicationContext.class);
         d.setContextConfigLocation(AppMvcConfig.class.getCanonicalName());
-        ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcherServlet", d);
-        registration.setLoadOnStartup(1);
-        registration.addMapping("/");
+        ServletRegistration.Dynamic r = servletContext.addServlet("dispatcherServlet", d);
+        r.setLoadOnStartup(1);
+        r.addMapping("/");
     }
 }
 ```
@@ -724,9 +698,9 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
         DispatcherServlet d = new DispatcherServlet();
         d.setContextClass(AnnotationConfigWebApplicationContext.class);
         d.setContextConfigLocation(AppMvcConfig.class.getCanonicalName());
-        ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcherServlet", d);
-        registration.setLoadOnStartup(1);
-        registration.addMapping("/");
+        ServletRegistration.Dynamic r = servletContext.addServlet("dispatcherServlet", d);
+        r.setLoadOnStartup(1);
+        r.addMapping("/");
     }
 }
 ```
@@ -750,9 +724,9 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
     	ac.register(AppConfig.class);
     	
         DispatcherServlet d = new DispatcherServlet(ac);
-        ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcherServlet", d);
-        registration.setLoadOnStartup(1);
-        registration.addMapping("/");
+        ServletRegistration.Dynamic r = servletContext.addServlet("dispatcherServlet", d);
+        r.setLoadOnStartup(1);
+        r.addMapping("/");
     }
 }
 ```
